@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_c186cdef075a69b6383482a5bfd2b112 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+            </style>
+        
+    
+                    <style>
+                        .foliumtooltip {
+                            background-color: white; color: #333333; font-family: arial; font-size: 12px; padding: 10px;
+                        }
+                       .foliumtooltip table{
+                            margin: auto;
+                        }
+                        .foliumtooltip tr{
+                            text-align: left;
+                        }
+                        .foliumtooltip th{
+                            padding: 2px; padding-right: 8px;
+                        }
+                    </style>
+            
+</head>
+<body>
+    
+    <h3 align="center" style="font-size:16px"><b>Weapons Companies in North Texas (2023)</b></h3>
+    
+            <div class="folium-map" id="map_c186cdef075a69b6383482a5bfd2b112" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_c186cdef075a69b6383482a5bfd2b112 = L.map(
+                "map_c186cdef075a69b6383482a5bfd2b112",
+                {
+                    center: [32.9445767, -97.0485375],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 10,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_172ea8f7a7d0bc8325f420d8d320ada0 = L.tileLayer(
+                "https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"http://cartodb.com/attributions\"\u003eCartoDB\u003c/a\u003e, CartoDB \u003ca href =\"http://cartodb.com/attributions\"\u003eattributions\u003c/a\u003e", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 9, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false, "zoomStart": 15}
+            ).addTo(map_c186cdef075a69b6383482a5bfd2b112);
+        
+    
+            var feature_group_d3fe8e050328f16a85068c1a5adeb0df = L.featureGroup(
+                {}
+            ).addTo(map_c186cdef075a69b6383482a5bfd2b112);
+        
+    
+        function geo_json_354f94378e4ece6844f57a9395c30b7a_highlighter(feature) {
+            switch(feature.id) {
+                default:
+                    return {"color": "#000000", "fillColor": "#000000", "fillOpacity": 0.5, "weight": 0.1};
+            }
+        }
+        function geo_json_354f94378e4ece6844f57a9395c30b7a_pointToLayer(feature, latlng) {
+            var opts = {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.5, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 0.2};
+            
+            return new L.CircleMarker(latlng, opts)
+        }
+
+        function geo_json_354f94378e4ece6844f57a9395c30b7a_onEachFeature(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    if(typeof e.target.setStyle === "function"){
+                        geo_json_354f94378e4ece6844f57a9395c30b7a.resetStyle(e.target);
+                    }
+                },
+                mouseover: function(e) {
+                    if(typeof e.target.setStyle === "function"){
+                        const highlightStyle = geo_json_354f94378e4ece6844f57a9395c30b7a_highlighter(e.target.feature)
+                        e.target.setStyle(highlightStyle);
+                    }
+                },
+            });
+        };
+        var geo_json_354f94378e4ece6844f57a9395c30b7a = L.geoJson(null, {
+                onEachFeature: geo_json_354f94378e4ece6844f57a9395c30b7a_onEachFeature,
+            
+                pointToLayer: geo_json_354f94378e4ece6844f57a9395c30b7a_pointToLayer
+        });
+
+        function geo_json_354f94378e4ece6844f57a9395c30b7a_add (data) {
+            geo_json_354f94378e4ece6844f57a9395c30b7a
+                .addData(data)
+                .addTo(feature_group_d3fe8e050328f16a85068c1a5adeb0df);
+        }
+            geo_json_354f94378e4ece6844f57a9395c30b7a_add({"bbox": [-97.44746080000002, 32.674710299999994, -96.64961419999999, 33.21444309999999], "features": [{"bbox": [-96.69101179999998, 33.0008672, -96.69101179999998, 33.0008672], "geometry": {"coordinates": [-96.69101179999998, 33.0008672], "type": "Point"}, "id": "0", "properties": {"Address": "1717 E CityLine Dr, Richardson, TX 75082", "Name": "Raytheon - Richardson"}, "type": "Feature"}, {"bbox": [-96.64961419999999, 33.21444309999999, -96.64961419999999, 33.21444309999999], "geometry": {"coordinates": [-96.64961419999999, 33.21444309999999], "type": "Point"}, "id": "1", "properties": {"Address": "2501 W University Dr, McKinney TX", "Name": "Raytheon - McKinney"}, "type": "Feature"}, {"bbox": [-97.0125812, 32.925865099999996, -97.0125812, 32.925865099999996], "geometry": {"coordinates": [-97.0125812, 32.925865099999996], "type": "Point"}, "id": "2", "properties": {"Address": "8710 Freeport Pkwy #200, Irving, TX 75063", "Name": "Northrup Grumman"}, "type": "Feature"}, {"bbox": [-97.0779281, 32.674710299999994, -97.0779281, 32.674710299999994], "geometry": {"coordinates": [-97.0779281, 32.674710299999994], "type": "Point"}, "id": "3", "properties": {"Address": "4501 New York Ave, Arlington, TX 76018", "Name": "Lockheed Martin - Office 1"}, "type": "Feature"}, {"bbox": [-97.02461809999998, 32.71774959999999, -97.02461809999998, 32.71774959999999], "geometry": {"coordinates": [-97.02461809999998, 32.71774959999999], "type": "Point"}, "id": "4", "properties": {"Address": "1902 W Freeway St, Grand Prairie, TX 75051", "Name": "Lockheed Martin - Office 2"}, "type": "Feature"}, {"bbox": [-97.0313575, 32.7175487, -97.0313575, 32.7175487], "geometry": {"coordinates": [-97.0313575, 32.7175487], "type": "Point"}, "id": "5", "properties": {"Address": "1601 W Marshall Dr, Grand Prairie, TX 75051", "Name": "Lockheed Martin - Manufacture 1"}, "type": "Feature"}, {"bbox": [-96.6854488, 33.067245899999996, -96.6854488, 33.067245899999996], "geometry": {"coordinates": [-96.6854488, 33.067245899999996], "type": "Point"}, "id": "6", "properties": {"Address": "6900 K Ave, Plano, TX 75074", "Name": "L3Harris - Office Building 1"}, "type": "Feature"}, {"bbox": [-97.0253146, 32.938863999999995, -97.0253146, 32.938863999999995], "geometry": {"coordinates": [-97.0253146, 32.938863999999995], "type": "Point"}, "id": "7", "properties": {"Address": "2750 Regent Blvd, Irving, TX", "Name": "Boeing - Building 1"}, "type": "Feature"}, {"bbox": [-97.02356459999999, 32.9411638, -97.02356459999999, 32.9411638], "geometry": {"coordinates": [-97.02356459999999, 32.9411638], "type": "Point"}, "id": "8", "properties": {"Address": "2755 Regent Blvd, Irving, TX", "Name": "Boeing - Building 2"}, "type": "Feature"}, {"bbox": [-97.16789489999998, 32.8045545, -97.16789489999998, 32.8045545], "geometry": {"coordinates": [-97.16789489999998, 32.8045545], "type": "Point"}, "id": "9", "properties": {"Address": "3000 S Norwood Dr, Hurst, TX 76053", "Name": "Bell - Plant 1"}, "type": "Feature"}, {"bbox": [-97.15638439999998, 32.808114399999994, -97.15638439999998, 32.808114399999994], "geometry": {"coordinates": [-97.15638439999998, 32.808114399999994], "type": "Point"}, "id": "10", "properties": {"Address": "3255 Bell Flight Blvd, Fort Worth, TX 76118", "Name": "Bell - Office 1"}, "type": "Feature"}, {"bbox": [-97.44746080000002, 32.7735747, -97.44746080000002, 32.7735747], "geometry": {"coordinates": [-97.44746080000002, 32.7735747], "type": "Point"}, "id": "11", "properties": {"Address": "1 Lockheed Blvd, Fort Worth, TX 76108", "Name": "Lockheed Martin - Manufacture 2"}, "type": "Feature"}], "type": "FeatureCollection"});
+
+        
+    
+    geo_json_354f94378e4ece6844f57a9395c30b7a.bindTooltip(
+    function(layer){
+    let div = L.DomUtil.create('div');
+    
+    let handleObject = feature=>typeof(feature)=='object' ? JSON.stringify(feature) : feature;
+    let fields = ["Name", "Address"];
+    let aliases = ["Name: ", "Address: "];
+    let table = '<table>' +
+        String(
+        fields.map(
+        (v,i)=>
+        `<tr>
+            <th>${aliases[i]}</th>
+            
+            <td>${handleObject(layer.feature.properties[v])}</td>
+        </tr>`).join(''))
+    +'</table>';
+    div.innerHTML=table;
+    
+    return div
+    }
+    ,{"className": "foliumtooltip", "sticky": true});
+                     
+    
+            var layer_control_f92cd1f29bcd9f5498147a03ffe69167 = {
+                base_layers : {
+                },
+                overlays :  {
+                    "Layer" : feature_group_d3fe8e050328f16a85068c1a5adeb0df,
+                },
+            };
+            L.control.layers(
+                layer_control_f92cd1f29bcd9f5498147a03ffe69167.base_layers,
+                layer_control_f92cd1f29bcd9f5498147a03ffe69167.overlays,
+                {"autoZIndex": true, "collapsed": false, "position": "topright"}
+            ).addTo(map_c186cdef075a69b6383482a5bfd2b112);
+        
+</script>
+</html>
